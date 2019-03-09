@@ -1,6 +1,6 @@
 {
   "name": "@wyze/github-release",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Generate a GitHub release.",
   "license": "MIT",
   "repository": "wyze/github-release",
