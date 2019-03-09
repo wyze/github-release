@@ -1,0 +1,77 @@
+{
+  "name": "@wyze/github-release",
+  "version": "0.0.0",
+  "description": "Generate a GitHub release.",
+  "license": "MIT",
+  "repository": "wyze/github-release",
+  "author": {
+    "name": "Neil Kistner",
+    "email": "neil.kistner@gmail.com",
+    "url": "neilkistner.com"
+  },
+  "bin": {
+    "github-release": "bin/index.js"
+  },
+  "scripts": {
+    "build": "rio -o bin/index.js -b '#!/usr/bin/env node' -e execa,gh-got,read-pkg bin/src/index.ts",
+    "clean": "rimraf bin/index.js",
+    "postbuild": "shx chmod a+x bin/index.js",
+    "postversion": "node bin",
+    "prebuild": "yarn clean",
+    "prettier": "prettier --write \"{bin,src}/**/*.ts\"",
+    "preversion": "yarn build",
+    "test": "jest",
+    "version": "changelog"
+  },
+  "files": [
+    "bin/index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "generate",
+    "github",
+    "release"
+  ],
+  "dependencies": {
+    "execa": "^1.0.0",
+    "gh-got": "^8.0.1",
+    "read-pkg": "^4.0.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/execa": "^0.9.0",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.11.0",
+    "@types/read-pkg": "^3.0.0",
+    "@wyze/rio": "^1.2.0",
+    "jest": "^24.3.1",
+    "prettier": "^1.15.1",
+    "rimraf": "^2.6.2",
+    "shx": "^0.3.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/typescript"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
