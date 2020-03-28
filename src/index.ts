@@ -1,7 +1,7 @@
 import * as fs from 'fs'
+import * as ghGot from 'gh-got'
 import { promisify } from 'util'
 import execa from 'execa'
-import ghGot from 'gh-got'
 import readPkg from 'read-pkg'
 
 type UrlVersion = {
@@ -40,11 +40,12 @@ const createGithubRelease = async ({
   url,
   version,
 }: ChangesUrlVersion) =>
-  await ghGot(`repos/${slug}/releases`, {
-    json: {
+  await ghGot.post({
+    body: {
       body: changes.join('\n') + `\n\n${url}/compare/${latest}...v${version}`,
       tag_name: `v${version}`,
     },
+    url: `repos/${slug}/releases`,
   })
 
 // Run it

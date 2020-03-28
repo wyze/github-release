@@ -29,7 +29,7 @@ it('creates initial github release', async () => {
     },
   })
 
-  jest.spyOn(ghGot, 'default').mockImplementation()
+  jest.spyOn(ghGot, 'post').mockImplementation()
 
   // Read changelog
   jest
@@ -51,12 +51,13 @@ it('creates initial github release', async () => {
     '--max-parents=0',
     'HEAD',
   ])
-  expect(ghGot).toHaveBeenCalledWith('repos/wyze/a-fixture/releases', {
-    json: {
+  expect(ghGot.post).toHaveBeenCalledWith({
+    body: {
       body:
         '* A bug fix PR ([@wyze](https://github.com/wyze) in [#1](https://github.com/wyze/a-fixture/pull/1))\n* Initial Commit ([@wyze](https://github.com/wyze) in [65578dd](https://github.com/wyze/a-fixture/commit/65578dd))\n\nhttps://github.com/wyze/a-fixture/compare/0a1b2c3...v1.0.0',
       tag_name: 'v1.0.0',
     },
+    url: 'repos/wyze/a-fixture/releases',
   })
 })
 
@@ -73,7 +74,7 @@ it('creates second github release', async () => {
     },
   })
 
-  jest.spyOn(ghGot, 'default').mockImplementation()
+  jest.spyOn(ghGot, 'post').mockImplementation()
 
   // Read changelog
   jest
@@ -90,11 +91,12 @@ it('creates second github release', async () => {
   await require('.').default()
 
   expect(execa).toHaveBeenCalledWith('git', ['push', '--follow-tags'])
-  expect(ghGot).toHaveBeenCalledWith('repos/wyze/a-fixture/releases', {
-    json: {
+  expect(ghGot.post).toHaveBeenCalledWith({
+    body: {
       body:
         '* A breaking change ([@wyze](https://github.com/wyze) in [#2](https://github.com/wyze/a-fixture/pull/2))\n\nhttps://github.com/wyze/a-fixture/compare/v1.0.0...v2.0.0',
       tag_name: 'v2.0.0',
     },
+    url: 'repos/wyze/a-fixture/releases',
   })
 })
