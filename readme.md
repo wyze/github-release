@@ -1,4 +1,4 @@
-# @wyze/github-release &middot; [![Build Status][circleci-image]][circleci-url] [![npm][npm-image]][npm-url] [![Codecov.io][codecov-image]][codecov-url]
+# @wyze/github-release &middot; [![Build Status][actions-image]][actions-url] [![npm][npm-image]][npm-url] [![Codecov.io][codecov-image]][codecov-url]
 
 > Generate a GitHub release.
 
@@ -36,8 +36,8 @@ $ github-release
 
 MIT © [Neil Kistner](//neilkistner.com)
 
-[circleci-image]: https://img.shields.io/circleci/project/github/wyze/github-release.svg?style=flat-square
-[circleci-url]: https://circleci.com/gh/wyze/github-release
+[actions-image]: https://img.shields.io/github/workflow/status/wyze/github-release/CI.svg?style=flat-square
+[actions-url]: https://github.com/wyze/github-release/actions
 
 [npm-image]: https://img.shields.io/npm/v/@wyze/github-release.svg?style=flat-square
 [npm-url]: https://npmjs.com/package/@wyze/github-release
