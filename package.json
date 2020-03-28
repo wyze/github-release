@@ -7,7 +7,7 @@
   "author": {
     "name": "Neil Kistner",
     "email": "neil.kistner@gmail.com",
-    "url": "neilkistner.com"
+    "url": "https://neilkistner.com"
   },
   "bin": {
     "github-release": "bin/index.js"
@@ -35,21 +35,20 @@
     "release"
   ],
   "dependencies": {
-    "execa": "^1.0.0",
-    "gh-got": "^8.0.1",
-    "read-pkg": "^4.0.1"
+    "execa": "^4.0.0",
+    "gh-got": "^9.0.0",
+    "read-pkg": "^5.2.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.3.4",
-    "@babel/preset-typescript": "^7.3.3",
-    "@types/execa": "^0.9.0",
-    "@types/jest": "^24.0.11",
-    "@types/node": "^11.11.0",
-    "@types/read-pkg": "^3.0.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.5",
+    "@types/read-pkg": "^5.1.0",
     "@wyze/rio": "^1.2.0",
-    "jest": "^24.3.1",
-    "prettier": "^1.15.1",
-    "rimraf": "^2.6.2",
+    "jest": "^25.2.3",
+    "prettier": "^2.0.2",
+    "rimraf": "^3.0.2",
     "shx": "^0.3.2"
   },
   "babel": {
@@ -69,9 +68,7 @@
     "testEnvironment": "node"
   },
   "prettier": {
-    "arrowParens": "always",
     "semi": false,
-    "singleQuote": true,
-    "trailingComma": "es5"
+    "singleQuote": true
   }
 }
