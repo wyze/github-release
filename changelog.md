@@ -1,5 +1,9 @@
 ## Change Log
 
+### [v1.1.1](https://github.com/wyze/github-release/releases/tag/v1.1.1) (2020-03-28)
+
+* Fix release not being created ([@wyze](https://github.com/wyze) in [37e6cff](https://github.com/wyze/github-release/commit/37e6cff))
+
 ### [v1.1.0](https://github.com/wyze/github-release/releases/tag/v1.1.0) (2020-03-28)
 
 * Add missing @wyze/changelog command ([@wyze](https://github.com/wyze) in [a6a7a29](https://github.com/wyze/github-release/commit/a6a7a29))
