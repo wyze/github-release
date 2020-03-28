@@ -19,7 +19,7 @@ const readFile = promisify(fs.readFile)
 
 const getUrlAndVersion = async (): Promise<UrlVersion> => {
   const { repository, version } = await readPkg()
-  const url = repository?.url.replace(/(^git\+|\.git$)/g, '') ?? ''
+  const url = (repository || { url: '' }).url.replace(/(^git\+|\.git$)/g, '')
   const slug = url.split('/').slice(-2).join('/')
 
   return { slug, url, version }
@@ -60,7 +60,7 @@ export default async () => {
     .filter((value) => value !== '')
   const latest =
     endIndex > 0
-      ? rawChanges[endIndex].match(/\[([^\]]+)\]/)?.[1] ?? ''
+      ? (rawChanges[endIndex].match(/\[([^\]]+)\]/) || ['', ''])[1]
       : (
           await execa('git', ['rev-list', '--max-parents=0', 'HEAD'])
         ).stdout.slice(0, 7)

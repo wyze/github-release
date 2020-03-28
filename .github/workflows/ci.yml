@@ -17,6 +17,7 @@ jobs:
       - run: yarn install --frozen-lockfile --check-files
       - run: yarn lint
       - run: yarn type-check
+      - run: yarn build
       - run: yarn test --coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
