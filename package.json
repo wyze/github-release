@@ -15,12 +15,14 @@
   "scripts": {
     "build": "rio -o bin/index.js -b '#!/usr/bin/env node' -e execa,gh-got,read-pkg bin/src/index.ts",
     "clean": "rimraf bin/index.js",
+    "lint": "eslint \"{bin,src}/**/*.ts\"",
     "postbuild": "shx chmod a+x bin/index.js",
     "postversion": "node bin",
     "prebuild": "yarn clean",
     "prettier": "prettier --write \"{bin,src}/**/*.ts\"",
     "preversion": "yarn build",
     "test": "jest",
+    "type-check": "tsc",
     "version": "changelog"
   },
   "files": [
@@ -45,11 +47,19 @@
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.5",
     "@types/read-pkg": "^5.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
     "@wyze/rio": "^1.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-wyze": "^3.4.0",
     "jest": "^25.2.3",
     "prettier": "^2.0.2",
     "rimraf": "^3.0.2",
-    "shx": "^0.3.2"
+    "shx": "^0.3.2",
+    "typescript": "^3.8.3"
   },
   "babel": {
     "presets": [
